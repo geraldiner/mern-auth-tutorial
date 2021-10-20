@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const ErrorResponse = require("../utils/errorResponse");
+const sendToken = require("../utils/sendToken");
 
 module.exports = {
 	register: async (req, res, next) => {
@@ -10,10 +11,7 @@ module.exports = {
 				email,
 				password,
 			});
-			res.status(201).json({
-				success: true,
-				user,
-			});
+			sendToken(user, 201, res);
 		} catch (err) {
 			next(err);
 		}
@@ -33,10 +31,7 @@ module.exports = {
 			if (!isMatch) {
 				next(new ErrorResponse("Invalid credentials.", 401));
 			} else {
-				res.status(200).json({
-					success: true,
-					token: "bloopshmoop",
-				});
+				sendToken(user, 200, res);
 			}
 		} catch (err) {
 			next(err);

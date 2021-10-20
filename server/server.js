@@ -9,6 +9,7 @@ connectDB();
 
 app.use(express.json());
 
+app.use("/private", require("./routes/private"));
 app.use("/auth", require("./routes/auth"));
 
 app.use(errorHandler);
