@@ -1,6 +1,6 @@
 ## About
 
-A test repo for experimenting with authentication on a MERN stack
+A test repo for experimenting with authentication on a MERN stack.
 
 ## Other Projects
 
